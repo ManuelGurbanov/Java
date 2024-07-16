@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAC</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CAC Icon -->
+  <link rel="icon" type="image/x-icon" href="./img/cac-icon.ico">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link href="./styles/styles.css" rel="stylesheet">
+  <link href="./styles/common-styles.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-2 mr-md-4" id="logoContainer">
+          <i class="fas fa-film"></i>
+          <a class="navbar-brand" href="index.html">
+            <span>CAC-Movies</span>
+          </a>
+        </div>
+  
+        <div class="col-12 col-md-10 ml-md-4" id="navLinksDiv">
+          <a class="link" href="register.html">Registrarse</a>
+          <a class="link" href="login.html">Iniciar Sesión</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <section id="bannerContainer" data-aos="zoom-in" data-aos-duration="1500">
+    <h1>Películas y series ilimitadas en un solo lugar.</h1>
+    <h2>Disfruta donde quieras.</h2>
+    <h3>Cancelá en cualquier momento.</h3>
+    <a href="register.html">
+      <button id="registerBtn" class="whiteHover">Suscribirse</button>
+    </a>
+  </section>
+
+  <!-- Boostrap Search -->
+  <section id="searcherContainer" data-aos="fade-up" data-aos-delay="120" data-aos-duration="2200">
+    <div class="input-group">
+      <h1>¿Qué estás buscando para ver?</h1>
+      <input id="searchInput" type="search" class="form-control rounded" placeholder="Película o Serie..." aria-label="Search" aria-describedby="search-addon" />
+      <button class="whiteHover" id="searchButton" onclick="searchMovies()">Buscar</button>
+    </div>
+    <h1 class="loadingTittle"></h1>
+
+    <div id="resultsGrid"></div>
+  </section>
+
+  <hr>
+
+  <section id="moviesSection" data-aos="fade-up" data-aos-delay="120" data-aos-duration="1200">
+    <h1>Tendencias</h1>
+
+    <div id="moviesGrid"></div>
+
+    <div id="pagesButtons">
+      <button class="whiteHover" id="prevButton">Anterior</button>
+      <button class="whiteHover" id="nextButton">Siguiente</button>
+    </div>
+  </section>
+
+  <hr>
+
+  <section id="mostAcclaimed" data-aos="fade-up" data-aos-delay="120" data-aos-duration="2200">
+    <h1>Las más aclamadas</h1>
+    <div id="mostAcclaimedContainer">
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg" alt="Pulp Fiction">
+        <div class="movieTittle">
+          <h5>Pulp Fiction</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//9cqNxx0GxF0bflZmeSMuL5tnGzr.jpg" alt="The Shawshank Redemption">
+        <div class="movieTittle">
+          <h5>The Shawshank Redemption</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//3bhkrj58Vtu7enYsRolD1fZdja1.jpg" alt="The Godfather">
+        <div class="movieTittle">
+          <h5>The Godfather</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//hek3koDUyRQk7FIhPXsa6mT2Zc3.jpg" alt="The Godfather 2">
+        <div class="movieTittle">
+          <h5>The Godfather 2</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg" alt="Schlinder List">
+        <div class="movieTittle">
+          <h5>Schlinder List</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//ow3wq89wM8qd5X7hWKxiRfsFf9C.jpg" alt="12 Angry Men">
+        <div class="movieTittle">
+          <h5>12 Angry Men</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//qJ2tW6WMUDux911r6m7haRef0WH.jpg" alt="Batman Dark Knight">
+        <div class="movieTittle">
+          <h5>Batman Dark Knight</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite">
+        <div class="movieTittle">
+          <h5>Parasite</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//8VG8fDNiy50H4FedGwdSVUPoaJe.jpg" alt="The Green Mile">
+        <div class="movieTittle">
+          <h5>The Green Mile</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//q719jXXEzOoYaps6babgKnONONX.jpg" alt="Your Name">
+        <div class="movieTittle">
+          <h5>Your Name</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//arw2vcBveWOVZr6pxd9XTd1TdQa.jpg" alt="Forrest Gump">
+        <div class="movieTittle">
+          <h5>Forrest Gump</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//aKuFiU82s5ISJpGZp7YkIr3kCUd.jpg" alt="GoodFellas">
+        <div class="movieTittle">
+          <h5>Goodfellas</h5>
+        </div>
+      </div>
+      <div class="movie">
+        <img src="https://image.tmdb.org/t/p/w500//8SRUfRUi6x4O68n0VCbDNRa6iGL.jpg" alt="Cinema Paradiso">
+        <div class="movieTittle">
+          <h5>Cinema Paradiso</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footerBtns">
+      <a href="#" class="link">Términos y Condiciones</a>
+      <a href="#" class="link">Darme de baja</a>
+      <a href="#" class="link">Ayuda</a>
+      <a href="add-movies.html" class="link darkBG">Administrador Películas</a>
+    </div>
+  </footer>
+
+  <a id="arrow-up" href="#bannerContainer">
+    <img src="img/arrow-up.png" alt="arrow-up">
+  </a>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/7e976723c9.js" crossorigin="anonymous"></script>
+  <script src="js/fetchMovies.js"></script>
+</body>
+</html>
